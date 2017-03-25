@@ -5,14 +5,21 @@
  */
 package glbank.database;
 
+import glbank.Client;
 import glbank.Employee;
 import java.sql.Connection;
 import java.util.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import static java.util.Collections.list;
+
+import java.util.List;
 
 
 /**
@@ -37,7 +44,7 @@ public class ConnectionProvider {
     }
     
     public boolean isEmployeePasswordValid(String username, String password){
-        String query="SELECT idemp FROM LoginEmployee WHERE login LIKE ? AND password LIKE ?";
+        String query="SELECT idemp FROM LoginEmployee WHERE login LIKE BINARY ? AND password LIKE BINARY ?";
         Connection conn = getConnection();
         if(conn!=null){
             try {
@@ -57,8 +64,29 @@ public class ConnectionProvider {
         return false;
     }
     
+    public boolean isEmployeePasswordValid(int idemp, String password){
+        String query="SELECT idemp FROM LoginEmployee WHERE idemp = ? AND password LIKE BINARY ?";
+        Connection conn = getConnection();
+        if(conn!=null){
+            try {
+                 PreparedStatement ps= conn.prepareStatement(query);
+                 ps.setInt(1, idemp);
+                 ps.setString(2, password);
+                 ResultSet rs = ps.executeQuery();
+                 boolean ret=rs.next();
+                 conn.close();
+                 
+                 return ret;
+                 
+            }catch(SQLException ex){
+                System.out.println("Error: "+ex.toString());
+            }
+        }
+        return false;
+    }
+    
     public int getEmployeeId(String username){
-        String query="SELECT idemp FROM LoginEmployee WHERE login LIKE ?";
+        String query="SELECT idemp FROM LoginEmployee WHERE login LIKE BINARY ?";
         Connection conn = getConnection();
         int id=-1;
         if(conn!=null){
@@ -129,4 +157,51 @@ public class ConnectionProvider {
         
         return employee;
     }
+    
+    public void changePassword(int idemp, String newPassword){
+        String query = "UPDATE LoginEmployee SET password=? WHERE idemp=?";
+        Connection conn=getConnection();
+        if(conn!=null){
+            try(PreparedStatement ps=conn.prepareStatement(query)){
+            ps.setString(1, newPassword);
+            ps.setInt(2, idemp);
+            ps.execute();
+            conn.close();
+            }catch(SQLException ex){
+                System.out.println("Error: "+ex.toString());
+            }
+        }
+    }
+    
+    public List<Client> getListOfAllClients(){
+        String query ="Select * FROM Clients "+
+                "INNER JOIN ClientDetails on Clients.idc=ClientDetails.idc"+
+                "where disable ='false'";
+        Connection conn= getConnection();
+        List<Client> list = new ArrayList<>(); 
+        if(conn!= null){
+            try(Statement ps = conn.createStatement()){
+                Resultset rs = statement.executeQuery(query);
+                while(rs.next()){
+                    int idc=rs.getInt("Clients.idc");
+                    String firstname = rs.getString("firstname");
+                    String lastname = rs.getString("lastname");
+                    Date date = rs.getDate("dob");
+                    Client client = new Client(idc,lastname,  firstname, dob){
+                        list.add(client);
+                    
+                }
+                    
+                
+                    
+                }
+                
+            }catch(SQLException ex){
+              System.out.println("Error");
+            }
+         
+        }
+        return null;
+    }
+    
 }
