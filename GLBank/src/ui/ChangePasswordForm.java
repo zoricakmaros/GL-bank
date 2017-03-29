@@ -55,13 +55,13 @@ public class ChangePasswordForm extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Algerian", 0, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Algerian", 0, 14)); // NOI18N
         jLabel1.setText("Old password: ");
 
-        jLabel2.setFont(new java.awt.Font("Algerian", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Algerian", 0, 14)); // NOI18N
         jLabel2.setText("New password: ");
 
-        jLabel3.setFont(new java.awt.Font("Algerian", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Algerian", 0, 14)); // NOI18N
         jLabel3.setText("Confirm new password: ");
 
         txtOldPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -70,7 +70,7 @@ public class ChangePasswordForm extends javax.swing.JDialog {
 
         txtNewPassword2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        btnChangePassword.setForeground(new java.awt.Color(102, 102, 0));
+        btnChangePassword.setFont(new java.awt.Font("Algerian", 0, 14)); // NOI18N
         btnChangePassword.setText("Change password");
         btnChangePassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +79,6 @@ public class ChangePasswordForm extends javax.swing.JDialog {
         });
 
         btnCancel.setFont(new java.awt.Font("Algerian", 0, 14)); // NOI18N
-        btnCancel.setForeground(new java.awt.Color(102, 102, 0));
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,15 +86,15 @@ public class ChangePasswordForm extends javax.swing.JDialog {
             }
         });
 
-        lblPasswordsMatch.setFont(new java.awt.Font("Algerian", 0, 12)); // NOI18N
+        lblPasswordsMatch.setFont(new java.awt.Font("Algerian", 0, 13)); // NOI18N
         lblPasswordsMatch.setForeground(new java.awt.Color(255, 51, 51));
         lblPasswordsMatch.setText("Passwords do not match !");
 
-        lblOldPasswordsIncorect.setFont(new java.awt.Font("Algerian", 0, 12)); // NOI18N
+        lblOldPasswordsIncorect.setFont(new java.awt.Font("Algerian", 0, 13)); // NOI18N
         lblOldPasswordsIncorect.setForeground(new java.awt.Color(255, 51, 51));
         lblOldPasswordsIncorect.setText("Incorect old password !");
 
-        lblInvalidPassword.setFont(new java.awt.Font("Algerian", 0, 12)); // NOI18N
+        lblInvalidPassword.setFont(new java.awt.Font("Algerian", 0, 13)); // NOI18N
         lblInvalidPassword.setForeground(new java.awt.Color(255, 51, 51));
         lblInvalidPassword.setText("Invalid new password !");
 
@@ -105,67 +104,62 @@ public class ChangePasswordForm extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(24, 24, 24)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 142, Short.MAX_VALUE)
-                        .addComponent(btnChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(lblInvalidPassword))
+                                .addGap(3, 3, 3)
+                                .addComponent(txtOldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNewPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPasswordsMatch)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNewPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblOldPasswordsIncorect)
-                                    .addComponent(txtNewPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(txtOldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnChangePassword)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblOldPasswordsIncorect)
+                            .addComponent(txtNewPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblInvalidPassword))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(19, 19, 19))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtOldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblOldPasswordsIncorect)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNewPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(1, 1, 1)
-                .addComponent(lblInvalidPassword)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(txtOldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblOldPasswordsIncorect)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel3))
+                        .addComponent(jLabel3)
+                        .addGap(36, 36, 36))
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtNewPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNewPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPasswordsMatch)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnChangePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addComponent(lblInvalidPassword)
+                        .addGap(1, 1, 1)
+                        .addComponent(txtNewPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPasswordsMatch)
+                        .addGap(9, 9, 9)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancel)
+                    .addComponent(btnChangePassword))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,32 +176,32 @@ public class ChangePasswordForm extends javax.swing.JDialog {
         String newPassword1=new String(txtNewPassword1.getPassword());
         String newPassword2=new String(txtNewPassword2.getPassword());
         
-        boolean validPassword=false;
-        lblInvalidPassword.setVisible(false);
-        boolean samePasswords=newPassword1.equals(newPassword2);
-        if(samePasswords){
-            lblPasswordsMatch.setVisible(false);
-            validPassword=isPasswordValid(newPassword1);
-            if(!validPassword){
-                lblInvalidPassword.setVisible(true);
+                 boolean validPassword=false;
+                  lblInvalidPassword.setVisible(false);
+                   boolean samePasswords=newPassword1.equals(newPassword2);
+                 if(samePasswords){
+                lblPasswordsMatch.setVisible(false);
+               validPassword=isPasswordValid(newPassword1);
+              if(!validPassword){
+            lblInvalidPassword.setVisible(true);
             }
         }
-        else{
+             else{
             lblPasswordsMatch.setVisible(true);
         }
         
-        boolean correctOldPassword = new ConnectionProvider().isEmployeePasswordValid(idemp, oldPassword);
-        if(correctOldPassword){
-            lblOldPasswordsIncorect.setVisible(false);
+            boolean correctOldPassword = new ConnectionProvider().isEmployeePasswordValid(idemp, oldPassword);
+             if(correctOldPassword){
+               lblOldPasswordsIncorect.setVisible(false);
         }
-        else{
-            lblOldPasswordsIncorect.setVisible(true);
+                else{
+               lblOldPasswordsIncorect.setVisible(true);
         }
         
-        if(correctOldPassword && samePasswords && validPassword){
-            ConnectionProvider conn=new ConnectionProvider();
-            conn.changePassword(idemp, newPassword1);
-            this.dispose();
+                   if(correctOldPassword && samePasswords && validPassword){
+                     ConnectionProvider conn=new ConnectionProvider();
+                      conn.changePassword(idemp, newPassword1);
+                        this.dispose();
         }
     }//GEN-LAST:event_btnChangePasswordActionPerformed
 

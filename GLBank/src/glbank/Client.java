@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Maros
+ * @author client
  */
 public class Client {
     private int idc;
@@ -17,44 +17,84 @@ public class Client {
     private String firstname;
     private String email;
     private String street;
-    private int housecode;
+    private int housenumber;
     private String postcode;
+    private String city;
     private String username;
     private boolean disable;
     private boolean blocked;
     private Date dob;
 
-    public Client(int idc, String lastname, String firstname, String email, String street, int housecode, String postcode, String username, boolean disable, boolean blocked) {
+    public Client(int idc, String lastname, String firstname, String email, String street, int housenumber, String postcode, String username, boolean disable, boolean blocked, Date dob, String city) {
         this.idc = idc;
         this.lastname = lastname;
         this.firstname = firstname;
         this.email = email;
         this.street = street;
-        this.housecode = housecode;
+        this.housenumber = housenumber;
         this.postcode = postcode;
         this.username = username;
         this.disable = disable;
         this.blocked = blocked;
-        this.dob= dob;
-        
-   
-    public Client(int idc, String lastname, String firstname,Date dob){
-        this.idc=idc;
-        this.lastname=lastname;
-        this.firstname=firstname;
-        this.dob=dob;
-        this.street= this.username=this.postcode=null;
-        this.housecode=0;
-        this.email=null;
-        this.disable=false;
-        this.blocked=false;
-        
-    } 
+        this.dob = dob;
     }
 
-   
- 
+    public Client(int idc, String lastname, String firstname, Date dob) {
+       this.idc=idc;
+       this.lastname=lastname;
+       this.firstname=firstname;
+       this.dob=dob;
+       this.street=this.username=this.postcode=null;
+       this.housenumber=0;
+       this.email=null;
+       this.disable=false;
+       this.blocked=false;
+       this.city=city; 
+    }
 
- 
+    public int getIdc() {
+        return idc;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setIdc(int idc) {
+        this.idc = idc;
+    }
+
+    public int getHousenumber() {
+        return housenumber;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getUsername() {
+        return username;
+    }
     
-
+    
+}
