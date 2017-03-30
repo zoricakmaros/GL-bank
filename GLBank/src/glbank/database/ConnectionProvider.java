@@ -5,6 +5,7 @@
  */
 package glbank.database;
 
+import glbank.Account;
 import glbank.Client;
 import glbank.Employee;
 import java.sql.Connection;
@@ -278,4 +279,22 @@ public class ConnectionProvider {
                                     System.out.println("Error: "+ex.toString());
          }
     }
+                     
+                     public List<Account> getAccounts(int idacc){
+                         Connection conn = getConnection();
+                         try{
+                             PreparedStatement ps = conn.preparedStatement(query);
+                             ps.setInt(1, idc);
+                             ResultSet rs = ps.executeQuery();
+                             List<Account> list=new ArrayList<>();
+                             while(rs.next()){
+                                 Account account = new Account(rs.getLong("idacc", idc, rs.getFloat("balance")));
+                                 list.add(account);
+                             }
+                             return list;
+                             
+                         }catch(SQLException ex){
+                             System.out.println("error"+ex.toString());
+                         }
+                     }
 }

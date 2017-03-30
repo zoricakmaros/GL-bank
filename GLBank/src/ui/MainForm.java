@@ -5,9 +5,11 @@
  */
 package ui;
 
+import ui.panels.PanelAccounts;
 import glbank.Client;
 import glbank.Employee;
 import glbank.database.ConnectionProvider;
+import static java.util.Collections.list;
 import java.util.List;
 
 /**
@@ -81,6 +83,11 @@ public class MainForm extends javax.swing.JFrame {
         lblClient.setText("Select client:");
 
         comboListOfAllClients.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "choose:" }));
+        comboListOfAllClients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboListOfAllClientsActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Algerian", 0, 14)); // NOI18N
         jButton1.setText("Register new client");
@@ -217,6 +224,23 @@ public class MainForm extends javax.swing.JFrame {
         About newAbout=new About();        
         newAbout.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void comboListOfAllClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboListOfAllClientsActionPerformed
+            
+        int index= comboListOfAllClients.getSelectedIndex();
+        jTabbedPane1.removeAll();
+        if(index>0){
+            int idc = list.get(index-1).getIdc();
+            Client client = new ConnectionProvider().getClient(idc);
+            PanelInfo jPanelInfo = new PanelInfo(client);
+            jTabbedPane1.add("information",jPanelInfo);
+            PanelAccounts jPanelAccounts = new PanelAccounts(idc);
+              jTabbedPane1.add("Accounts",jPanelAccounts);
+              
+            
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboListOfAllClientsActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboListOfAllClients;
