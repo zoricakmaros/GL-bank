@@ -18,6 +18,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import javax.management.Query;
 
 
 /**
@@ -280,10 +281,10 @@ public class ConnectionProvider {
          }
     }
                      
-                     public List<Account> getAccounts(int idacc){
+                     public List<Account> getAccounts(int idacc, int idc){
                          Connection conn = getConnection();
                          try{
-                             PreparedStatement ps = conn.preparedStatement(query);
+                             PreparedStatement ps = conn.preparedStatement(Query);
                              ps.setInt(1, idc);
                              ResultSet rs = ps.executeQuery();
                              List<Account> list=new ArrayList<>();
@@ -296,5 +297,18 @@ public class ConnectionProvider {
                          }catch(SQLException ex){
                              System.out.println("error"+ex.toString());
                          }
+        return null;
+                     }
+                     
+                     public boolean existAccount(long idacc){
+                         String query = "Select idacc from Accounts where idc =?";
+                         try{
+                             Connection conn = getConnection();
+                             PreparedStatement ps = conn.preparedStatement(query);
+                             ps.setLong(1,idaac);
+                             ResultSet
+                         }
+                         return false;
+                        
                      }
 }

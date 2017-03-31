@@ -5,6 +5,10 @@
  */
 package ui.panels;
 
+import glbank.Account;
+import glbank.database.ConnectionProvider;
+import java.util.List;
+
 /**
  *
  * @author Maros
@@ -14,9 +18,16 @@ public class PanelAccounts extends javax.swing.JFrame {
     /**
      * Creates new form PanelAccounts
      */
-    public PanelAccounts() {
+    public PanelAccounts(int idc) {
         initComponents();
+        
     }
+
+    private PanelAccounts() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,11 +44,11 @@ public class PanelAccounts extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 669, Short.MAX_VALUE)
+            .addGap(0, 907, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 364, Short.MAX_VALUE)
         );
 
         pack();
@@ -75,7 +86,21 @@ public class PanelAccounts extends javax.swing.JFrame {
             public void run() {
                 new PanelAccounts().setVisible(true);
             }
+            
         });
+    }
+    
+    private void initAccountList(){
+        ConnectionProvider conn = new ConnectionProvider();
+        List<Account> list= conn.getAccounts(idc);
+        lblBalance.setText("");
+        for(Account account: list){
+            jAccountList.addItem(""+account.getIdacc()+"/2701");
+            
+        }
+        int index= jAccountList.getSelectedIndex();
+        lblBalance.setText(""+list.get) 
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

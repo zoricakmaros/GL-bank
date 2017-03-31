@@ -20,6 +20,11 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
     </Container>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jButton2"/>
+      </Properties>
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu3">
@@ -113,21 +118,18 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblEmployeeName" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="lblClient" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                       <Component id="comboListOfAllClients" min="-2" pref="191" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="lblEmployeeName" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jSeparator2" min="-2" pref="692" max="-2" attributes="0"/>
-                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jSeparator2" min="-2" pref="692" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -135,8 +137,18 @@
                       <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="180" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -145,17 +157,25 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblEmployeeName" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblClient" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="comboListOfAllClients" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblClient" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboListOfAllClients" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Component id="jTabbedPane1" min="-2" pref="181" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator4" min="-2" pref="14" max="-2" attributes="0"/>
@@ -218,6 +238,26 @@
       </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator4">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ClientDetail"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Account"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Transaction"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cards"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
