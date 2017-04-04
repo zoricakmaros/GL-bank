@@ -8,26 +8,28 @@ package ui.panels;
 import glbank.Account;
 import glbank.database.ConnectionProvider;
 import java.util.List;
+import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Maros
+ * @author client
  */
-public class PanelAccounts extends javax.swing.JFrame {
-
+public class PanelAccounts extends javax.swing.JPanel {
+    private int idc;
+    private int idemp;
+    
+    private List<Account> list;
     /**
      * Creates new form PanelAccounts
      */
-    public PanelAccounts(int idc) {
+    public PanelAccounts(int idc, int idemp) {
         initComponents();
+        this.idc=idc;
+        this.idemp=idemp;
+        initAccountList();
         
     }
-
-    private PanelAccounts() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,71 +40,202 @@ public class PanelAccounts extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        jAccountList = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        lblBalance = new javax.swing.JLabel();
+        jtxtAddValue = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jtxtSubValue = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        btnNewAccount = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        jLabel1.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 153, 0));
+        jLabel1.setText("Account id:");
+
+        jAccountList.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jAccountList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAccountListActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 204, 0));
+        jLabel2.setText("Balance:");
+
+        lblBalance.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblBalance.setText("1234.56");
+
+        jtxtAddValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtxtAddValue.setText("0");
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 51, 204));
+        jButton1.setText("Add+");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jtxtSubValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtxtSubValue.setText("0");
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(51, 51, 255));
+        jButton2.setText("sub -");
+
+        jLabel4.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel4.setText("Transaction Cash:");
+
+        btnNewAccount.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        btnNewAccount.setForeground(new java.awt.Color(255, 0, 0));
+        btnNewAccount.setText("Add new account");
+        btnNewAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewAccountActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 907, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblBalance)
+                                .addGap(136, 136, 136)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(124, 124, 124)
+                                .addComponent(jtxtAddValue, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxtSubValue, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(138, 138, 138)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(102, 102, 102)
+                                .addComponent(jAccountList, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnNewAccount)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel4)))))
+                .addGap(76, 76, 76))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 364, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jAccountList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblBalance))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnNewAccount)
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtxtAddValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtSubValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PanelAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PanelAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PanelAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PanelAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void jAccountListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAccountListActionPerformed
+        // TODO add your handling code here:
+        if(!list.isEmpty()){
+            int index=jAccountList.getSelectedIndex();
+            lblBalance.setText(""+list.get(index).getBalance());
         }
-        //</editor-fold>
+    }//GEN-LAST:event_jAccountListActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PanelAccounts().setVisible(true);
-            }
-            
-        });
-    }
-    
-    private void initAccountList(){
-        ConnectionProvider conn = new ConnectionProvider();
-        List<Account> list= conn.getAccounts(idc);
-        lblBalance.setText("");
-        for(Account account: list){
-            jAccountList.addItem(""+account.getIdacc()+"/2701");
-            
+    private void btnNewAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewAccountActionPerformed
+        // TODO add your handling code here:
+        ConnectionProvider conn=new ConnectionProvider();
+        long proposalAccount;
+        do{
+                 proposalAccount=Math.abs(new Random().nextLong()%900000000)*11;
+        }while(conn.existsAccount(proposalAccount));
+           System.out.println("New account id: "+proposalAccount);
+           conn.insertNewAccount(idc,proposalAccount);
+    }//GEN-LAST:event_btnNewAccountActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String text = jtxtAddValue.getText();
+        float value= parseStringToFloat(text);
+        value = (float) Math.round(value * 100) / 100;
+        System.out.println("value: "+value);
+        if(value>=0.1){
+            JOptionPane.showMessageDialog(this, "Payment ok.");
+            int index=jAccountList.getSelectedIndex();
+            long idacc=list.get(index).getIdacc();
+            new ConnectionProvider().insertCash(idacc,value,idemp); 
         }
-        int index= jAccountList.getSelectedIndex();
-        lblBalance.setText(""+list.get) 
-        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private float parseStringToFloat(String text){
+        if(text.length()>0){
+            try {
+                float value=Float.parseFloat(text);
+                return value;
+            }catch(NumberFormatException ex){
+                
+            }
+        }
+        return 0;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnNewAccount;
+    private javax.swing.JComboBox<String> jAccountList;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField jtxtAddValue;
+    private javax.swing.JTextField jtxtSubValue;
+    private javax.swing.JLabel lblBalance;
     // End of variables declaration//GEN-END:variables
+
+    private void initAccountList() {
+        ConnectionProvider conn = new ConnectionProvider();
+        list=conn.getAccounts(idc);
+        lblBalance.setText("");
+        if(list.isEmpty())
+            return;
+        
+        list.stream().forEach((account) -> {
+            jAccountList.addItem(""+account.getIdacc()+" / 2701");
+        });
+        int index=jAccountList.getSelectedIndex();
+        lblBalance.setText(""+list.get(index).getBalance());
+    }
 }

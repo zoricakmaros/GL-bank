@@ -5,13 +5,14 @@
  */
 package ui;
 
+import ui.panels.PanelInfo;
 import ui.panels.PanelAccounts;
+import ui.panels.PanelTransaction;
 import glbank.Client;
 import glbank.Employee;
 import glbank.database.ConnectionProvider;
-import static java.nio.file.Files.list;
-import static java.util.Collections.list;
 import java.util.List;
+import ui.panels.PanelCards;
 
 /**
  *
@@ -19,6 +20,8 @@ import java.util.List;
  */
 public class MainForm extends javax.swing.JFrame {
     private int idemp;
+    private List<Client> list;
+            
     private ConnectionProvider conn;
     /**
      * Creates new form MainForm
@@ -33,6 +36,7 @@ public class MainForm extends javax.swing.JFrame {
     private void initForm(){
         printEmployeeName();
         showListOfClients();
+        initTabs();
     }
     
     private void printEmployeeName(){
@@ -54,19 +58,14 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jButton2 = new javax.swing.JButton();
         lblEmployeeName = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         lblClient = new javax.swing.JLabel();
         comboListOfAllClients = new javax.swing.JComboBox<>();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
         jButton1 = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         menuChangePassword = new javax.swing.JMenuItem();
@@ -78,16 +77,14 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenu2.setText("jMenu2");
 
-        jButton2.setText("jButton2");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Main");
-        setResizable(false);
 
-        lblEmployeeName.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
+        lblEmployeeName.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        lblEmployeeName.setForeground(new java.awt.Color(153, 255, 51));
         lblEmployeeName.setText("Logged in user: FirstName LastName");
 
-        lblClient.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblClient.setFont(new java.awt.Font("Algerian", 0, 14)); // NOI18N
+        lblClient.setForeground(new java.awt.Color(102, 0, 0));
         lblClient.setText("Select client:");
 
         comboListOfAllClients.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "choose:" }));
@@ -97,23 +94,16 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Algerian", 0, 14)); // NOI18N
-        jButton1.setText("Register new client");
+        jButton1.setFont(new java.awt.Font("Algerian", 0, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 102, 51));
+        jButton1.setText("New client");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("ClientDetail");
-
-        jButton4.setText("Account");
-
-        jButton5.setText("Transaction");
-
-        jButton6.setText("Cards");
-
-        jMenu3.setForeground(new java.awt.Color(255, 0, 0));
+        jMenu3.setForeground(new java.awt.Color(102, 102, 255));
         jMenu3.setText("Menu");
 
         menuChangePassword.setText("Change Password");
@@ -135,17 +125,10 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setForeground(new java.awt.Color(255, 0, 0));
+        jMenu4.setForeground(new java.awt.Color(102, 102, 255));
         jMenu4.setText("About");
-        jMenu4.setToolTipText("");
-        jMenu4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu4ActionPerformed(evt);
-            }
-        });
 
         jMenuItem1.setText("About");
-        jMenuItem1.setToolTipText("");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -162,63 +145,44 @@ public class MainForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblEmployeeName)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblClient)
-                                        .addGap(19, 19, 19)
-                                        .addComponent(comboListOfAllClients, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(273, 273, 273)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblClient)
+                            .addGap(18, 18, 18)
+                            .addComponent(comboListOfAllClients, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblEmployeeName)
+                .addGap(178, 178, 178))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addComponent(lblEmployeeName)
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblClient)
-                        .addComponent(comboListOfAllClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
-                .addGap(1, 1, 1)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(lblClient)
+                    .addComponent(comboListOfAllClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -244,42 +208,40 @@ public class MainForm extends javax.swing.JFrame {
         newClientForm.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-        About newAbout=new About();
-        newAbout.setVisible(true);
-    }//GEN-LAST:event_jMenu4ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        About newAbout=new About();        
-        newAbout.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void comboListOfAllClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboListOfAllClientsActionPerformed
+        // TODO add your handling code here:
+                    int index=comboListOfAllClients.getSelectedIndex();
+        
+                     jTabbedPane1.removeAll();
+                      if(index>0){
             
-        int index= comboListOfAllClients.getSelectedIndex();
-        jTabbedPane1.removeAll();
-        if(index>0){
-            int idc = list.get(index-1).getIdc();
-            Client client = new ConnectionProvider().getClient(idc);
-            PanelInfo jPanelInfo = new PanelInfo(client);
-            jTabbedPane1.add("information",jPanelInfo);
-            PanelAccounts jPanelAccounts = new PanelAccounts(idc);
-              jTabbedPane1.add("Accounts",jPanelAccounts);
-              
+                       int idc = list.get(index-1).getIdc();
+                       
+                        Client client=new ConnectionProvider().getClient(idc);
+                         PanelInfo jPanelInfo = new PanelInfo(client);
+                          jTabbedPane1.add("Information", jPanelInfo);
+            
+                     PanelAccounts jPanelAccounts=new PanelAccounts(idc,idemp);
+                    jTabbedPane1.add("Accounts", jPanelAccounts);
+                   PanelTransaction jPanelTransaction=new PanelTransaction();
+                  jTabbedPane1.add("Transactions", jPanelTransaction);
+                 PanelCards jPanelCards = new PanelCards();
+                jTabbedPane1.add("Cards", jPanelCards);
             
         }
-        // TODO add your handling code here:
     }//GEN-LAST:event_comboListOfAllClientsActionPerformed
-    
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+            AboutForm newAboutForm=new AboutForm();
+            newAboutForm.setVisible(true);
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboListOfAllClients;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -296,14 +258,20 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuExit;
     // End of variables declaration//GEN-END:variables
 
-       private void showListOfClients() {
-        List<Client> list = new ConnectionProvider().getListOfAllClients();
-           if(list!=null && list.size()>0){
-             for(Client client : list){
+    private void showListOfClients() {
+        list = new ConnectionProvider().getListOfAllClients();
+        if(list!=null && list.size()>0){
+            for(Client client : list){
                 String item=client.getLastname()+" "+client.getFirstname()+
-                 "  ["+client.getDob()+"]";
-                   comboListOfAllClients.addItem(item);
+                "  ["+client.getDob()+"]";
+                comboListOfAllClients.addItem(item);
             }
         }
+    }
+
+    private void initTabs() {
+        
+       
+        
     }
 }

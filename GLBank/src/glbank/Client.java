@@ -37,6 +37,7 @@ public class Client {
         this.disable = disable;
         this.blocked = blocked;
         this.dob = dob;
+        this.city=city;
     }
 
     public Client(int idc, String lastname, String firstname, Date dob) {
@@ -49,7 +50,7 @@ public class Client {
        this.email=null;
        this.disable=false;
        this.blocked=false;
-       this.city=city; 
+       this.city=null; 
     }
 
     public int getIdc() {

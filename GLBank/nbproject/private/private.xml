@@ -3,16 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Maros/Desktop/glbank-master%20–%20kópia/GLBank/src/ui/About.java</file>
-            <file>file:/C:/Users/Maros/Desktop/glbank-master%20–%20kópia/GLBank/src/ui/panels/ClientCardPanel.java</file>
-            <file>file:/C:/Users/Maros/Desktop/glbank-master%20–%20kópia/GLBank/src/ui/panels/PanelTransaction.java</file>
-            <file>file:/C:/Users/Maros/Desktop/glbank-master%20–%20kópia/GLBank/src/glbank/database/ConnectionProvider.java</file>
-            <file>file:/C:/Users/Maros/Desktop/glbank-master%20–%20kópia/GLBank/src/ui/NewAccountDialog.java</file>
-            <file>file:/C:/Users/Maros/Desktop/glbank-master%20–%20kópia/GLBank/src/ui/NewClientForm.java</file>
-            <file>file:/C:/Users/Maros/Desktop/glbank-master%20–%20kópia/GLBank/src/ui/MainForm.java</file>
-            <file>file:/C:/Users/Maros/Desktop/glbank-master%20–%20kópia/GLBank/src/glbank/Account.java</file>
-            <file>file:/C:/Users/Maros/Desktop/glbank-master%20–%20kópia/GLBank/src/ui/panels/PanelAccounts.java</file>
-            <file>file:/C:/Users/Maros/Desktop/glbank-master%20–%20kópia/GLBank/src/ui/panels/ClientAccountPanel.java</file>
+            <file>file:/D:/GLBank/src/ui/LoginForm.java</file>
+            <file>file:/D:/GLBank/src/glbank/database/ConnectionProvider.java</file>
+            <file>file:/D:/GLBank/src/ui/NewClientForm.java</file>
+            <file>file:/D:/GLBank/src/ui/panels/PanelInfo.java</file>
+            <file>file:/D:/GLBank/src/ui/panels/PanelTransaction.java</file>
+            <file>file:/D:/GLBank/test/glbank/database/ConnectionProviderTest.java</file>
+            <file>file:/D:/GLBank/src/ui/AboutForm.java</file>
+            <file>file:/D:/GLBank/src/ui/MainForm.java</file>
+            <file>file:/D:/GLBank/src/ui/ChangePasswordForm.java</file>
+            <file>file:/D:/GLBank/src/ui/panels/PanelCards.java</file>
+            <file>file:/D:/GLBank/src/ui/panels/PanelAccounts.java</file>
         </group>
     </open-files>
 </project-private>

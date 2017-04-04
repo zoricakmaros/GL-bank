@@ -9,12 +9,12 @@ package ui.panels;
  *
  * @author client
  */
-public class PanelTransaction extends javax.swing.JPanel {
+public class PanelCards extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelTransaction
+     * Creates new form PanelCards
      */
-    public PanelTransaction() {
+    public PanelCards() {
         initComponents();
     }
 
@@ -31,11 +31,11 @@ public class PanelTransaction extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 826, Short.MAX_VALUE)
+            .addGap(0, 916, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 196, Short.MAX_VALUE)
+            .addGap(0, 186, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

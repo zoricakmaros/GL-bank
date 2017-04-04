@@ -5,6 +5,7 @@
  */
 package glbank.database;
 
+import glbank.Client;
 import glbank.Employee;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -45,8 +46,8 @@ public class ConnectionProviderTest {
     @Test
     public void testIsEmployeePasswordValid1() {
         System.out.println("isEmployeePasswordValid");
-        String username = "molnar";
-        String password = "molnar";
+        String username = "maros";
+        String password = "maros";
         ConnectionProvider instance = new ConnectionProvider();
         boolean expResult = true;
         boolean result = instance.isEmployeePasswordValid(username, password);
@@ -57,8 +58,8 @@ public class ConnectionProviderTest {
 
     public void testIsEmployeePasswordValid2() {
         System.out.println("isEmployeePasswordValid");
-        String username = "molnar";
-        String password = "molnar";
+        String username = "maros";
+        String password = "maros";
         ConnectionProvider instance = new ConnectionProvider();
         boolean expResult = false;
         boolean result = instance.isEmployeePasswordValid(username, password);
@@ -155,4 +156,36 @@ public class ConnectionProviderTest {
         
     }
     
+    /**
+     * Test of getEmployee method, of class ConnectionProvider.
+     */
+    @Test
+    public void testGetClient() {
+        System.out.println("getClient");
+        int id = 1;
+        ConnectionProvider instance = new ConnectionProvider();
+        
+        Client result = instance.getClient(id);
+        assertEquals("Dominik", result.getFirstname());
+        assertEquals("Kovac", result.getLastname());
+        assertEquals("kovac@zoznam.sk", result.getEmail());    
+    }
+    
+    /**
+     * Test of getEmployee method, of class ConnectionProvider.
+     */
+    @Test
+    public void testExistsUsername() {
+        System.out.println("existsUsername");
+        String username="kovac";
+        String username2="kra658bumham";
+        ConnectionProvider instance = new ConnectionProvider();
+        
+        boolean result = instance.existUsername(username);
+        assertTrue(result);
+       
+        result = instance.existUsername(username2);
+        assertFalse( result);
+        
+    }
 }
