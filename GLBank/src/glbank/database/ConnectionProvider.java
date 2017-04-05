@@ -409,4 +409,19 @@ public class ConnectionProvider {
 
     private void writeLogTransaction(long idacc, float value, int idemp, Connection conn) {
     }
+    
+    
+    public boolean addNewCard(long idacc){
+        String query= "Insert into BankCards(idacc, pincode)"+"values(?,?,?,?)";
+        Connection conn= getConnection();
+        
+        
+        return false;
+      
+        
+     
+       
+        
+         }       
+    
 }

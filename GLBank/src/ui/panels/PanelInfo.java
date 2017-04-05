@@ -52,14 +52,10 @@ public class PanelInfo extends javax.swing.JPanel {
         lblLastName2 = new javax.swing.JLabel();
         lblDob2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         lblStreet = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
         lblPostcode = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -69,6 +65,10 @@ public class PanelInfo extends javax.swing.JPanel {
         lblFirstName = new javax.swing.JLabel();
         lblLastName = new javax.swing.JLabel();
         lblDob = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
@@ -214,15 +214,6 @@ public class PanelInfo extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1200, 200));
 
-        jLabel2.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        jLabel2.setText("Email:");
-
-        jLabel3.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        jLabel3.setText("Address:");
-
-        jLabel6.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        jLabel6.setText("Postcode:");
-
         lblEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblEmail.setText("email address");
 
@@ -235,53 +226,31 @@ public class PanelInfo extends javax.swing.JPanel {
         lblPostcode.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPostcode.setText("postcode");
 
-        jLabel19.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        jLabel19.setText("City:");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel19))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPostcode)
-                            .addComponent(lblCity)
-                            .addComponent(lblStreet))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblEmail)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(lblEmail)
+                    .addComponent(lblStreet)
+                    .addComponent(lblCity)
+                    .addComponent(lblPostcode))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblEmail))
+                .addComponent(lblEmail)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblStreet)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCity)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblStreet))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCity)
-                    .addComponent(jLabel19))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(lblPostcode))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(lblPostcode)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jLabel15.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
@@ -354,6 +323,18 @@ public class PanelInfo extends javax.swing.JPanel {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
+        jLabel2.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        jLabel2.setText("Email:");
+
+        jLabel3.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        jLabel3.setText("Address:");
+
+        jLabel19.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        jLabel19.setText("City:");
+
+        jLabel6.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        jLabel6.setText("Postcode:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -361,9 +342,15 @@ public class PanelInfo extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(139, 139, 139)
+                .addGap(75, 75, 75)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(513, Short.MAX_VALUE))
+                .addContainerGap(579, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,6 +359,16 @@ public class PanelInfo extends javax.swing.JPanel {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
