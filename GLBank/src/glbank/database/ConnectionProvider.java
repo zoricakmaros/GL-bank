@@ -423,5 +423,19 @@ public class ConnectionProvider {
        
         
          }       
-    
+    public boolean updateClientCard(int idCard){
+        String query= "Update Bank Cards Set pincode";
+        Connection conn = getConnection();
+        if(conn !=null){
+            try( 
+              PreparedStatement ps = conn.preparedStatement(query)){
+                ps.SetInt(1,idCard);
+                ps.SetInt(2,idCard);
+                
+            }
+                  
+        }
+        return false;
+        
+    }
 }
