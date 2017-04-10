@@ -18,6 +18,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import static javax.management.Query.value;
 
 
 /**
@@ -398,6 +399,8 @@ public class ConnectionProvider {
     }
 
                private void writeLogTransaction(long idacc, float value, int idemp, Connection conn) {
+                   
+                   
     }
                   public boolean addNewCard(long idacc){
                  String query= "Insert into BankCards(idacc, pincode)"+"values(?,?,?,?)";
@@ -406,12 +409,16 @@ public class ConnectionProvider {
       }  
                   public boolean updateClientCard(int idCard){
                    String query= "Update Bank Cards Set pincode";
+                    PreparedStatement = ps = conn.prepareStatement(query);
+                    ps.setFloat(1,value);
+                    ps.setLong(2,idacc);
+                    
+                    
                     Connection conn = getConnection();
                      if(conn !=null){
                       try( 
-                        PreparedStatement ps = conn.preparedStatement(query)){
-                         ps.SetInt(1,idCard);
-                          ps.SetInt(2,idCard);
+                        
+                      
                 
             }
                   
@@ -419,4 +426,8 @@ public class ConnectionProvider {
         return false;
         
     }
-}
+
+    
+        }
+    
+
