@@ -425,7 +425,12 @@ public class ConnectionProvider {
         }
         return false;
         
-    }
+    }public boolean updateClientCard(int idCard){
+                   String query= "Update Bank Cards Set pincode";
+                    PreparedStatement = ps = conn.prepareStatement(query);
+                    ps.setFloat(1,value);
+                    ps.setLong(2,idacc);
+                    
 
     
         }
